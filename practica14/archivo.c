@@ -1,3 +1,6 @@
+//practica 14
+//Programa que genera un numero aleatorio desde /dev/random
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<sys/stat.h>
