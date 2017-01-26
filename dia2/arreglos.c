@@ -9,7 +9,7 @@ int main()
 	char k[10];
 	//Un arreglo al igual que cualquier variable en C no es mas que un fragmento de memoria.
 	char *ptr="Arreglo"; //Por lo que definirlo como apuntador, es pusible;
-	
+
 	//Un arreglo tambien puede ser definido por medio de memoria dinamica, con la funcion calloc
 	char *ptr_d=(char *) calloc(sizeof(char),60);
 	strcpy(ptr_d,"DINAMICO");
@@ -20,8 +20,8 @@ int main()
 		k[a]=i[a];
 		printf("%c\n",k[a]);
 	}
-	
+
 	printf("%s\n",ptr);
 	printf("%s\n",ptr_d);
-	free(ptr_d);
+	free(ptr_d);//libera memoria
 }
