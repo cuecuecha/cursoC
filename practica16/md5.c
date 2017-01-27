@@ -1,38 +1,40 @@
+//Programa que realiza el MD5 de un arhivo, pasandole como argumento dicho archivo
 #include <string.h>
 #include <openssl/md5.h>
 #include<stdio.h>
-#include<stdio.h>
-#include<stdlib.h>
 #include<sys/stat.h>
 #include<fcntl.h>
 #include<unistd.h>
-FILE *archivo;
 int main(int argc, char *argv[])
 {
+    unsigned char digest[MD5_DIGEST_LENGTH]; 
+    unsigned char data[1024];
+    MD5_CTX mdContext;//es una estructura que esta en md5.h 
+    int archivo,bytes;
 
-	#if 0
-		if(argc<2)
-		{
-			perror("Se necesita un argumento\n");
-			return(1111);
-		}
-	#endif
+    if(argc<2) //se verifica que el programa tenga sólo un argumento
+    {
+    	printf("Se necesita un argumento, ruta del archivo\n");
+    	return 1;
+    }
 
-
-    	unsigned char digest[MD5_DIGEST_LENGTH];
-	archivo = fopen(argv[1],"r");
-	if(archivo==NULL)
-	{
-		printf("Error al tratar de abrir el archivo");
-		return 1;
-	}
-    	MD5((unsigned char*)&archivo,sizeof(archivo),(unsigned char*)&digest);    
 	
-    	char mdString[33];
-    	int i;
-	for(i = 0; i < 16; i++)
-        	sprintf(&mdString[i*2], "%02x", (unsigned int)digest[i]);
-    	printf("md5 digest: %s\n", mdString);
-	fclose(archivo);
-    	return 0;
+	archivo=open(argv[1],O_RDONLY); //archivo en modo lectura 
+
+	if(archivo==-1)
+	{
+		fprintf(stderr,"Error al abrir el archivo");
+		return -1;
+	}
+
+	MD5_Init(&mdContext);//inicializa la estructuraa
+	while((bytes=read(archivo,data,1024))!=0) //guarda en bloques mientras se cumpla
+		MD5_Update(&mdContext,data,bytes);//realiza la operacion por cada bloque
+	MD5_Final(digest,&mdContext);
+	int i;
+	for(i = 0; i < MD5_DIGEST_LENGTH; i++)
+        printf("%02x", digest[i]); 
+    printf("\n");
+    close(archivo);
+    return 0;
 }
