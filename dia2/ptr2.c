@@ -11,7 +11,7 @@ int main(int argc, char *argv[])//
 	//printf("%d\n",argc);
 	printf("%d\n",atoi(argv[argc-1])); //
 	//printf("%d",argc);
-
+	return 0;
 
 }
 //int atoi(char *num)
