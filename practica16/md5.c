@@ -1,9 +1,9 @@
 //Programa que realiza el MD5 de un arhivo, pasandole como argumento dicho archivo
-#include <string.h>
 #include <openssl/md5.h>
+#include<fcntl.h>
+#include <string.h>
 #include<stdio.h>
 #include<sys/stat.h>
-#include<fcntl.h>
 #include<unistd.h>
 int main(int argc, char *argv[])
 {
