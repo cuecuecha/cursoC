@@ -1,0 +1,1 @@
+cmd_/root/cursoC/practica20/keyKernel/keyKernel.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.16.0-4-common/scripts/module-common.lds --build-id  -o /root/cursoC/practica20/keyKernel/keyKernel.ko /root/cursoC/practica20/keyKernel/keyKernel.o /root/cursoC/practica20/keyKernel/keyKernel.mod.o

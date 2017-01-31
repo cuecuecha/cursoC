@@ -1,0 +1,1 @@
+cmd_/root/cursoC/kernel/holaMundo/hola.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.16.0-4-common/scripts/module-common.lds --build-id  -o /root/cursoC/kernel/holaMundo/hola.ko /root/cursoC/kernel/holaMundo/hola.o /root/cursoC/kernel/holaMundo/hola.mod.o

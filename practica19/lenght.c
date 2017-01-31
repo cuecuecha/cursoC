@@ -1,5 +1,4 @@
-//Programa que realiza el MD5 de un arhivo, pasandole como argumento dicho archivo
-#include <openssl/md5.h>
+//Programa que muestra el tamaño de un archivo
 #include<fcntl.h>
 #include <string.h>
 #include<stdio.h>
