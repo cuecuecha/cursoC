@@ -6,12 +6,6 @@
 #define RUTA "/root/cursoC/practica20/keylogger"
 
 
-static int __init inicio(void)
-{
-printk(KERN_ALERT "Inicio\n");
-
-return 0;
-}
 static void __exit fin(void)
 {
 printk(KERN_INFO "Terminado \n");
